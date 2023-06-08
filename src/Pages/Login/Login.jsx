@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
 
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const { signIn,googleSignIn } = useContext(AuthContext);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -23,6 +24,7 @@ const Login = () => {
 		.then(result=>{
 			const loggedUser = result.user;
 			console.log(loggedUser)
+      toast("User has login successfully")
 		})
 		.catch(error => console.log(error))
 
@@ -34,7 +36,7 @@ const Login = () => {
     .then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-     
+      
       navigete(from, { replace: true });
     })
     .catch((error) => {
@@ -47,6 +49,7 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen bg-img  ">
+      <ToastContainer />
     
     <div className="flex flex-col max-w-md p-2 rounded-md sm:p-10 bg-gray-900 bg-opacity-50 my-20 text-gray-100">
 	<div className="mb-8 text-center">

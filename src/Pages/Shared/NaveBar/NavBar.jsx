@@ -24,10 +24,22 @@ const NavBar = () => {
                 <li >
             <ActiveLink><button className="uppercase" onClick={handleLogOut}>LogOut</button></ActiveLink>
           </li>
+          <li>
+            <label
+              className=" avatar tooltip tooltip-bottom tooltip-success"
+              data-tip={user?.displayName}
+            >
+              <div className="w-10 rounded-full ">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+          </li>
+        
             </> : <>
             <li><ActiveLink to='/login'>Login</ActiveLink></li>
             </>
         }
+        
 	</>
     return (
         <div>
@@ -44,7 +56,7 @@ const NavBar = () => {
     <Link to="/" className=" font-bold text-2xl text-white">FitLab<span className='text-red-600 font-extrabold '>LC</span> </Link>
   </div>
   <div className="navbar-end mr-16 hidden lg:flex">
-    <ul className=" flex gap-4 px-1 text-xs text-white font-semibold uppercase">
+    <ul className=" flex items-center gap-4 px-1 text-xs text-white font-semibold uppercase">
      
 	  {navList}
     </ul>

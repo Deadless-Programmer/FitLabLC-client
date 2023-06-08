@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './../../providers/AuthProvider';
-
+import { updateProfile } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
 	const { createUser, googleSignIn } = useContext(AuthContext);
 
@@ -12,11 +14,21 @@ const SignUp = () => {
   password.current = watch('password', 'confirm');
 
     const onSubmit = data => {
-		console.log(data);
-		createUser(data.email, data.password)
+		console.log(data.name, data.photourl);
+		const name = data.name;
+		const photo = data.photourl;
+		const password = data.password;
+		const confirm = data.confirm;
+		if(password !== confirm){
+			toast("password doesn't match")
+			return;
+		}
+		createUser(data.email, password)
 		.then(result=>{
 			const loggedUser = result.user;
+			profileUpdate(result.user, name, photo);
 			console.log(loggedUser)
+			toast("User has create account successfully")
 		})
 		.catch(error => console.log(error))
 
@@ -33,8 +45,23 @@ const SignUp = () => {
 		  // setError(error.message);
 		});
 	  }
+
+	  const profileUpdate = (user, name, photo) => {
+		updateProfile(user, {
+		  displayName: name,
+		  photoURL: photo,
+		})
+		  .then(() => {})
+		  .catch((error) => {
+			console.error(error);
+		  });
+	  };
+
+
+
     return (
         <div>
+			<ToastContainer />
            <div className="hero min-h-screen bg-img  ">
     
     <div className="flex flex-col max-w-md p-2 rounded-md sm:p-10 bg-gray-900 bg-opacity-50 my-20 text-gray-100">
