@@ -1,17 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
 	const { createUser, googleSignIn } = useContext(AuthContext);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-	const password = React.useRef({});
-  password.current = watch('password', 'confirm');
+// 	const password = React.useRef({});
+//   password.current = watch('password', 'confirm');
+const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
     const onSubmit = data => {
 		console.log(data.name, data.photourl);
@@ -87,7 +93,7 @@ const SignUp = () => {
 					<label htmlFor="password" className="text-sm">Password</label>
 					
 				</div>
-				<input type="password" {...register("password", { required: true, minLength:6, 
+				<input type={passwordVisible ? "text" : "password"} {...register("password", { required: true, minLength:6, 
 				pattern:  /^(?=.*[A-Z])(?=.*[!@#$&*]).*$/
 				
 				})} name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black " />
@@ -95,6 +101,13 @@ const SignUp = () => {
                 {errors.password?.type === 'required' && <p className="text-lime-400">Password is required</p>}
                 {errors.password?.type === 'minLength' && <p className="text-lime-400">Password must be 6 characters</p>}
 				{errors.password?.type === 'pattern' && <p className="text-lime-600">Password must contain at least one capital letter and one special character.</p>}
+				<span className="toggle-icon absolute mt-4 -ml-8 " onClick={togglePasswordVisibility}>
+          {passwordVisible ? (
+            <h1 className='text-red-500'> <FaEye></FaEye>  </h1>
+          ) : (
+            <h1 className='text-red-500'>  <FaEyeSlash></FaEyeSlash> </h1>
+          )}
+        </span>
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
@@ -112,6 +125,7 @@ const SignUp = () => {
 				{errors.confirm && (
           <span style={{ color: 'red' }}>{errors.confirm.message}</span>
         )}
+		
 			</div>
 
 			

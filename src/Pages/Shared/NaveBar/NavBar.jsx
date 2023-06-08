@@ -14,12 +14,9 @@ const NavBar = () => {
 	 <li><ActiveLink to="/">Home</ActiveLink></li>    
       <li><ActiveLink to='/instructors'>Instructors</ActiveLink></li>
       <li><ActiveLink to='/classes'>Classes</ActiveLink></li>
-      {/* <li><ActiveLink to='/dashboard'>Dashboard</ActiveLink></li> */}
-      {/* <li><ActiveLink to='/login'>Login</ActiveLink></li> */}
-      
       {
             user ? <>
-                {/* <li onClick={handleLogOut}>LogOut</li> */}
+               
                 <li><ActiveLink to='/dashboard'>Dashboard</ActiveLink></li>
                 <li >
             <ActiveLink><button className="uppercase" onClick={handleLogOut}>LogOut</button></ActiveLink>
