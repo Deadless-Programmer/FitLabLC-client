@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './../../providers/AuthProvider';
 
 const SignUp = () => {
+	const { createUser } = useContext(AuthContext);
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+	const password = React.useRef({});
+  password.current = watch('password', 'confirm');
+
+    const onSubmit = data => {
+		console.log(data);
+		createUser(data.email, data.password)
+		.then(result=>{
+			const loggedUser = result.user;
+			console.log(loggedUser)
+		})
+		.catch(error => console.log(error))
+
+	};
     return (
         <div>
            <div className="hero min-h-screen bg-img  ">
@@ -11,18 +30,59 @@ const SignUp = () => {
 		<h1 className="my-3 text-4xl font-bold">Sign up</h1>
 		<p className="text-sm dark:text-gray-400">Sign up to create new account</p>
 	</div>
-	<form novalidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+	<form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-4">
 			<div>
-				<label for="email" className="block mb-2 text-sm">Email address</label>
-				<input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black" />
+				<label htmlFor="name" className="block mb-2 text-sm">User Name</label>
+				<input type="name" {...register("name", { required: true })}  name="name" id="" placeholder="Your User Name" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black" />
+                {errors.name && <span className='text-lime-400'>Name is required</span>}
+			</div>
+			<div>
+				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
+				<input type="email" {...register("email", { required: true })} name="email" id="email" placeholder="FitLabLC@gmail.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black" />
+                {/* {errors.email && <span className='text-lime-400'>Email is required</span>} */}
+                {errors.email?.type === 'required' && <p className="text-lime-400">Email is required</p>}
 			</div>
 			<div>
 				<div className="flex justify-between mb-2">
-					<label for="password" className="text-sm">Password</label>
-					<a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
+					<label htmlFor="password" className="text-sm">Password</label>
+					
 				</div>
-				<input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black " />
+				<input type="password" {...register("password", { required: true, minLength:6, 
+				pattern:  /^(?=.*[A-Z])(?=.*[!@#$&*]).*$/
+				
+				})} name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black " />
+                {/* {errors.password && <span className='text-lime-400'>Password is required</span>} */}
+                {errors.password?.type === 'required' && <p className="text-lime-400">Password is required</p>}
+                {errors.password?.type === 'minLength' && <p className="text-lime-400">Password must be 6 characters</p>}
+				{errors.password?.type === 'pattern' && <p className="text-lime-600">Password must contain at least one capital letter and one special character.</p>}
+			</div>
+			<div>
+				<div className="flex justify-between mb-2">
+					<label htmlFor="password" className="text-sm">Confirm Password</label>
+					{/* {...register("confirm", { required: true}, )} */}
+				</div>
+				<input type="password" 
+				 {...register('confirm', { required: true}, {
+					validate: (value) =>
+					  value === password.current || 'The passwords do not match',
+				  })}
+				
+				name="confirm" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black " />
+                {errors.confirm && <span className='text-lime-400'>This field is required</span>}
+				{errors.confirm && (
+          <span style={{ color: 'red' }}>{errors.confirm.message}</span>
+        )}
+			</div>
+
+			
+			<div>
+				<div className="flex justify-between mb-2">
+					<label htmlFor="password" className="text-sm">Photo URL</label>
+					
+				</div>
+				<input type="text" {...register("photourl", { required: true })} name="photourl" id="" placeholder="Your Photo URL" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black " />
+                {errors.photourl && <span className='text-lime-400'>Photo URL is required</span>}
 			</div>
       <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-3 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
