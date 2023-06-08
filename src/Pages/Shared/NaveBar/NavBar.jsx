@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../../ActiveLink/ActiveLink';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
+  const { user,logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+        .then(() => { })
+        .catch(error => console.log(error));
+}
 	const navList = <>
 	 <li><ActiveLink to="/">Home</ActiveLink></li>    
       <li><ActiveLink to='/instructors'>Instructors</ActiveLink></li>
       <li><ActiveLink to='/classes'>Classes</ActiveLink></li>
-      <li><ActiveLink to='/dashboard'>Dashboard</ActiveLink></li>
-      <li><ActiveLink to='/login'>Login</ActiveLink></li>
+      {/* <li><ActiveLink to='/dashboard'>Dashboard</ActiveLink></li> */}
+      {/* <li><ActiveLink to='/login'>Login</ActiveLink></li> */}
+      
+      {
+            user ? <>
+                {/* <li onClick={handleLogOut}>LogOut</li> */}
+                <li><ActiveLink to='/dashboard'>Dashboard</ActiveLink></li>
+                <li >
+            <ActiveLink><button className="uppercase" onClick={handleLogOut}>LogOut</button></ActiveLink>
+          </li>
+            </> : <>
+            <li><ActiveLink to='/login'>Login</ActiveLink></li>
+            </>
+        }
 	</>
     return (
         <div>
