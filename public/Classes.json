@@ -5,7 +5,8 @@
       "instructor": "John Doe",
       "availableSeats": 10,
       "price": 49.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 16
     },
     {
       "image": "https://images.unsplash.com/photo-1528304270437-714a2d6fbb6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -13,15 +14,17 @@
       "instructor": "Jane Smith",
       "availableSeats": 15,
       "price": 79.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 33
     },
     {
       "image": "https://images.unsplash.com/photo-1549476464-37392f717541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "name": "PowerFit Fusion",
       "instructor": "Robert Johnson",
-      "availableSeats": 5,
+      "availableSeats": 0,
       "price": 29.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 22
     },
     {
       "image": "https://images.unsplash.com/photo-1546483875-ad9014c88eba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=782&q=80",
@@ -29,15 +32,17 @@
       "instructor": "Emily Brown",
       "availableSeats": 8,
       "price": 69.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 16
     },
     {
-      "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=904&q=80",
+      "image": "https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "name": "StrengthMax Elite",
       "instructor": "Michael Wilson",
-      "availableSeats": 20,
+      "availableSeats": 0,
       "price": 99.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 26
     },
     {
       "image": "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80",
@@ -45,7 +50,8 @@
       "instructor": "Jessica Taylor",
       "availableSeats": 12,
       "price": 39.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 30
     },
     {
       "image": "https://images.unsplash.com/photo-1575052814074-c05122e0a17a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -53,15 +59,17 @@
       "instructor": "David Anderson",
       "availableSeats": 18,
       "price": 89.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 21
     },
     {
       "image": "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "name": "SweatBurn Circuit",
       "instructor": "Sarah Martinez",
-      "availableSeats": 3,
+      "availableSeats": 0,
       "price": 19.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 17
     },
     {
       "image": "https://images.unsplash.com/photo-1652363723082-b1fdca4bdbd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -69,7 +77,8 @@
       "instructor": "William Thompson",
       "availableSeats": 7,
       "price": 59.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 20
     },
     {
       "image": "https://images.unsplash.com/photo-1520787497953-1985ca467702?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=754&q=80",
@@ -77,7 +86,8 @@
       "instructor": "Olivia Garcia",
       "availableSeats": 14,
       "price": 49.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 26
     },
     {
       "image": "https://images.unsplash.com/photo-1616279967983-ec413476e824?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=852&q=80",
@@ -85,7 +95,8 @@
       "instructor": "Daniel Rodriguez",
       "availableSeats": 9,
       "price": 29.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 19
     },
     {
       "image": "https://images.pexels.com/photos/4058411/pexels-photo-4058411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -93,7 +104,8 @@
       "instructor": "Sophia Hernandez",
       "availableSeats": 6,
       "price": 39.99,
-      "selectButton": "Select"
+      "selectButton": "Select",
+      "studentsEnrolled": 28
     }
   ]
   
