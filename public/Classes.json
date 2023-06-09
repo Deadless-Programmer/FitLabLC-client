@@ -1,0 +1,99 @@
+[
+    {
+      "image": "https://images.unsplash.com/photo-1616279969722-d81a5a3944ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=427&q=80",
+      "name": "FitLife Pro",
+      "instructor": "John Doe",
+      "availableSeats": 10,
+      "price": 49.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1528304270437-714a2d6fbb6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "name": "ActiveBody Training",
+      "instructor": "Jane Smith",
+      "availableSeats": 15,
+      "price": 79.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1549476464-37392f717541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "name": "PowerFit Fusion",
+      "instructor": "Robert Johnson",
+      "availableSeats": 5,
+      "price": 29.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1546483875-ad9014c88eba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=782&q=80",
+      "name": "CardioFlex Studio",
+      "instructor": "Emily Brown",
+      "availableSeats": 8,
+      "price": 69.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=904&q=80",
+      "name": "StrengthMax Elite",
+      "instructor": "Michael Wilson",
+      "availableSeats": 20,
+      "price": 99.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80",
+      "name": "ZenFitness Yoga",
+      "instructor": "Jessica Taylor",
+      "availableSeats": 12,
+      "price": 39.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1575052814074-c05122e0a17a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "name": "CrossFitXperience",
+      "instructor": "David Anderson",
+      "availableSeats": 18,
+      "price": 89.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "name": "SweatBurn Circuit",
+      "instructor": "Sarah Martinez",
+      "availableSeats": 3,
+      "price": 19.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1652363723082-b1fdca4bdbd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "name": "PilatesCore Dynamics",
+      "instructor": "William Thompson",
+      "availableSeats": 7,
+      "price": 59.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1520787497953-1985ca467702?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=754&q=80",
+      "name": "EnduranceX Athletics",
+      "instructor": "Olivia Garcia",
+      "availableSeats": 14,
+      "price": 49.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1616279967983-ec413476e824?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=852&q=80",
+      "name": "FlexFlow Pilates",
+      "instructor": "Daniel Rodriguez",
+      "availableSeats": 9,
+      "price": 29.99,
+      "selectButton": "Select"
+    },
+    {
+      "image": "https://images.pexels.com/photos/4058411/pexels-photo-4058411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "HIITZone Express",
+      "instructor": "Sophia Hernandez",
+      "availableSeats": 6,
+      "price": 39.99,
+      "selectButton": "Select"
+    }
+  ]
+  

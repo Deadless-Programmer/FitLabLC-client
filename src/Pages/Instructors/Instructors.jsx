@@ -12,7 +12,7 @@ const Instructors = () => {
 
     return (
         <div>
-          <section className="py-6 bg-gray-800 text-white">
+          <section className="py-12 bg-gray-800 text-white">
 	<div className="container p-4 mx-auto space-y-16 sm:p-10">
 		<div className="space-y-4 text-center">
 			<h3 className="text-2xl font-bold leading-none sm:text-4xl">Meet Our Talented Instructors</h3>
