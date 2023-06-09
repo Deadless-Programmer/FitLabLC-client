@@ -1,14 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import Instructor from './Instructor';
-
+import axios from 'axios';
 const Instructors = () => {
 
-        const [Instructors, setInstructors]=useState([]);
-        useEffect(()=>{
-            fetch('Instructors.json')
-            .then(res=> res.json())
-            .then(data=>setInstructors(data))
-        },[])
+    const [courseData, setCourseData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:5000/instructors'); 
+            setCourseData(response.data);
+          } catch (error) {
+            console.error('Error fetching course data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+
+
+
+        // const [Instructors, setInstructors]=useState([]);
+        // useEffect(()=>{
+        //     fetch('http://localhost:5000/instructors')
+        //     .then(res=> res.json())
+        //     .then(data=>setInstructors(data))
+        // },[])
 
     return (
         <div>
@@ -21,7 +39,7 @@ const Instructors = () => {
 		</div>
 		<div className="grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
 			{
-                Instructors.map((data, index)=> <Instructor key={index} data={data} ></Instructor> )
+                courseData.map((data, index)=> <Instructor key={index} data={data} ></Instructor> )
             }
 			
 		</div>

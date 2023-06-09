@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import Class from './Class';
-
+import axios from 'axios';
 const Classes = () => {
 
     const [classes, setClasses]=useState([]);
-    useEffect(()=>{
-        fetch('Classes.json')
-        .then(res=>res.json())
-        .then(data=>setClasses(data))
-    },[])
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/class')
+    //     .then(res=>res.json())
+    //     .then(data=>setClasses(data))
+    // },[])
 
+    // const [courseData, setCourseData] = useState([]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:5000/class'); 
+            setClasses(response.data);
+          } catch (error) {
+            console.error('Error fetching course data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     return (
         <div>
