@@ -25,7 +25,7 @@ const Class = ({data}) => {
 		{/* <button disabled={!isAvailable || isAdmin} onClick={() => handleSelect(data)}>
         {isAdmin ? 'Logged in as Admin' : 'Select'}
       </button> */}
-        <button disabled={!isAvailable} className="btn bg-red-600 border-0 text-white hover:bg-lime-700 capitalize">{selectButton}</button>
+        <button disabled={!isAvailable} className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">{selectButton}</button>
 	</div>
 </div> 
         </div>

@@ -23,7 +23,7 @@ const PopularClassCard = ({classData}) => {
 		{/* <button disabled={!isAvailable || isAdmin} onClick={() => handleSelect(data)}>
         {isAdmin ? 'Logged in as Admin' : 'Select'}
       </button> */}
-        <button className="btn bg-red-600 border-0 text-white hover:bg-lime-700 capitalize">{selectButton}</button>
+        <button className="btn bg-red-600 border-0 text-lg text-white hover:bg-lime-700 capitalize">{selectButton}</button>
 	</div>
 </div> 
         </div>
