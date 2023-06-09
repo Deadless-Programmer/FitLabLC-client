@@ -1,24 +1,26 @@
 import React, { useContext, useState } from 'react';
 import "./Login.css"
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 const Login = () => {
   const { signIn,googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log(navigate)
+  const from = location.state?.from?.pathname || '/';
+  console.log(from)
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  
+ 
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
-
-
-
 
   const onSubmit = data => {
 		console.log(data);
@@ -26,7 +28,17 @@ const Login = () => {
 		.then(result=>{
 			const loggedUser = result.user;
 			console.log(loggedUser)
-      toast("User has login successfully")
+      // toast("User has login successfully")
+      if(loggedUser){
+        Swal.fire({
+          // position: 'top-end',
+          icon: 'success',
+          title: 'User successfully log in',
+          showConfirmButton: 'Cool',
+          timer: 1500
+        })
+      }
+      navigate(from, {replace:true})
 		})
 		.catch(error => console.log(error))
 
@@ -39,7 +51,7 @@ const Login = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
       
-      navigete(from, { replace: true });
+      navigate(from, { replace: true });
     })
     .catch((error) => {
       // setError(error.message);

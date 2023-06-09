@@ -10,6 +10,8 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Login from "../Pages/Login/Login";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivePage from "../Pages/HomePage/PrivePage/PrivePage";
+import PrivetRoute from "./PrivetRoute";
  
 
 
@@ -43,6 +45,10 @@ import SignUp from "../Pages/SignUp/SignUp";
         {
           path:"/signup",
           element:<SignUp></SignUp>
+        },
+        {
+          path:'/privetpage',
+          element:<PrivetRoute><PrivePage></PrivePage></PrivetRoute>
         }
       ]
     },

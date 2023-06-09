@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Class from './Class';
 import axios from 'axios';
 import PopularClass from '../HomePage/Home/PopularClass/PopularClass';
+import { AuthContext } from '../../providers/AuthProvider';
+import Spinner from '../Spinner/Spinner';
 const Classes = () => {
 
     const [classes, setClasses]=useState([]);
@@ -12,6 +14,8 @@ const Classes = () => {
     // },[])
 
     // const [courseData, setCourseData] = useState([]);
+
+  
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +29,12 @@ const Classes = () => {
     
         fetchData();
       }, []);
+      const {loading}=useContext(AuthContext);
+    
+      if(loading){
+        return  <Spinner></Spinner>
+      
+      }
 
     return (
         <div>

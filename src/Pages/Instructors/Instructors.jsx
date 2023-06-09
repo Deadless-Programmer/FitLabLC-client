@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Instructor from './Instructor';
 import axios from 'axios';
+import { AuthContext } from '../../providers/AuthProvider';
+import Spinner from '../Spinner/Spinner';
 const Instructors = () => {
 
     const [courseData, setCourseData] = useState([]);
@@ -18,7 +20,12 @@ const Instructors = () => {
         fetchData();
       }, []);
 
-
+      const {loading}=useContext(AuthContext);
+    
+      if(loading){
+        return  <Spinner></Spinner>
+      
+      }
 
 
         // const [Instructors, setInstructors]=useState([]);
