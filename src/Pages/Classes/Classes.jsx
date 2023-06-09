@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Class from './Class';
 import axios from 'axios';
+import PopularClass from '../HomePage/Home/PopularClass/PopularClass';
 const Classes = () => {
 
     const [classes, setClasses]=useState([]);
@@ -36,7 +37,8 @@ const Classes = () => {
 
         <div className="grid w-full content-center	 grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
 			{
-                classes.map((data, index)=> <Class data={data} key={index}></Class> )
+                classes.map((data, index)=> <Class data={data} key={index}></Class>)
+                
             }
 			
 		</div>

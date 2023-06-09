@@ -1,6 +1,22 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import PopularClassCard from './PopularClassCard';
 const PopularClass = () => {
+    const [popularClasses, setPopularClasses]=useState([]);
+   
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:5000/popularClass'); 
+            setPopularClasses(response.data);
+          } catch (error) {
+            console.error('Error fetching course data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
     return (
         <div>
             <section className="  text-black">
@@ -10,12 +26,12 @@ const PopularClass = () => {
 			<p className="">Uncover excellence with top-rated courses. Immerse in knowledge, guided by expert instructors. <br /> Transformative education awaits. Join us today!</p>
 		</div>
 
-        {/* <div className="grid w-full content-center	 grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid w-full content-center	 grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
 			{
-                classes.map((data, index)=> <Class data={data} key={index}></Class> )
+                popularClasses.map((classData, index)=> <PopularClassCard key={index} classData={classData} ></PopularClassCard>  )
             }
 			
-		</div> */}
+		</div>
 		
 	</div>
 </section>
