@@ -1,11 +1,45 @@
 import React from 'react';
 import useClassCart from '../../../hooks/useClassCart';
 import { Link } from 'react-router-dom';
-
+import { FaTrash, FaAmazonPay } from "react-icons/fa";
+import Swal from 'sweetalert2';
 const MyClass = () => {
-    const [classCart]=useClassCart();
+    const [classCart, refetch]=useClassCart();
     console.log(classCart);
     const total = classCart.reduce((sum, item) => item.price + sum, 0);
+
+        const handleDelete =data=>{
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                    fetch(`http://localhost:5000/classCart/${data._id}`,{
+                        method: 'DELETE'
+                    })
+                    .then(res=>res.json())
+                    .then(data=>{
+                        if(data.deletedCount>0){
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                              )
+                        }
+                    })
+                 
+                }
+              })
+        }
+        
+
     return (
         <div>
 
@@ -60,9 +94,9 @@ const MyClass = () => {
           {data.instructor}
          
         </td>
-        <td> <button className='btn  hover:bg-red-600 hover:text-white'>Delete</button> </td>
-        <td>{data.price}</td>
-        <td><button className='btn hover:bg-lime-400'>Pay</button></td>
+        <td> <button onClick={()=>handleDelete(data)} className='btn  hover:bg-red-600 text-xl text-red-600 hover:text-white'> <FaTrash></FaTrash> </button> </td>
+        <td>${data.price}</td>
+        <td><button className='btn hover:bg-lime-400 text-lime-600 hover:text-white  text-2xl'><FaAmazonPay></FaAmazonPay></button></td>
         
       </tr>)}
       

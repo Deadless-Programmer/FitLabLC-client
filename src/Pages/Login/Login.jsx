@@ -74,7 +74,7 @@ const Login = () => {
 		<div className="space-y-4">
     <div>
 				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-				<input type="email" {...register("email", { required: true })} name="email" id="email" placeholder="FitLabLC@gmail.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black" />
+				<input type="email" {...register("email", { required: true })} name="email" id="email" placeholder="fitLabLC@gmail.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 text-black" />
                 {/* {errors.email && <span className='text-lime-400'>Email is required</span>} */}
                 {errors.email?.type === 'required' && <p className="text-lime-400">Email is required</p>}
 			</div>
