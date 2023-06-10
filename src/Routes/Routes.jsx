@@ -52,5 +52,6 @@ import PrivetRoute from "./PrivetRoute";
         }
       ]
     },
+    
   ]);
 

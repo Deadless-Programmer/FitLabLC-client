@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,7 +18,9 @@ const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
+  const navigate =useNavigate();
+  const location = useLocation();
+//   const from = location.state?.from?.pathname || '/';
     const onSubmit = data => {
 		console.log(data.name, data.photourl);
 		const name = data.name;
@@ -35,6 +37,7 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 			profileUpdate(result.user, name, photo);
 			console.log(loggedUser)
 			toast("User has create account successfully")
+			navigate('/')
 		})
 		.catch(error => console.log(error))
 
@@ -44,8 +47,8 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 		.then((result) => {
 		  const loggedUser = result.user;
 		  console.log(loggedUser);
-		 
-		  navigete(from, { replace: true });
+		  navigate('/')
+		//   navigete(from, { replace: true });
 		})
 		.catch((error) => {
 		  // setError(error.message);

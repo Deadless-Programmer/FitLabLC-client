@@ -1,11 +1,64 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useClassCart from '../../hooks/useClassCart';
 
 const Class = ({data}) => {
   console.log(data)
     
-    const {image, name, instructor, availableSeats, price, selectButton} = data;
+    const {image, name, instructor, availableSeats, price, selectButton, _id} = data;
     const isAvailable = availableSeats > 0;
     const isAdmin = true;
+    const {user}=useContext(AuthContext);
+    const navigate =useNavigate();
+    const location = useLocation();
+    const [,refetch]=useClassCart();
+    
+  const handleAddToClassCart = data=>{
+          console.log(data)
+          
+          if(user && user.email){
+            const classCartItem = { classId:_id, image, name, instructor, availableSeats, price, email:user.email}
+            fetch('http://localhost:5000/classCart',{
+              method: 'POST',
+              headers: {
+                  'content-type': 'application/json'
+              },
+              body: JSON.stringify(classCartItem)
+            })
+            .then(res=> res.json())
+            .then(data=>{
+              if(data.insertedId){
+                refetch();
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Class added successfully on the cart',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }
+            })
+          }
+
+          else{
+            Swal.fire({
+              title: 'Please login first to get access class',
+              
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Login Now!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                navigate('/login', {state:{from:location}} )
+              }
+            })
+          }
+  }
+
   const cardStyle = {
     backgroundColor: isAvailable ? 'white' : 'red',
   };
@@ -25,7 +78,7 @@ const Class = ({data}) => {
 		{/* <button disabled={!isAvailable || isAdmin} onClick={() => handleSelect(data)}>
         {isAdmin ? 'Logged in as Admin' : 'Select'}
       </button> */}
-        <button disabled={!isAvailable} className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">{selectButton}</button>
+        <button onClick={()=>handleAddToClassCart(data)} disabled={!isAvailable} className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">{selectButton}</button>
 	</div>
 </div> 
         </div>

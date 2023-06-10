@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
-
+import { FaShoppingCart } from "react-icons/fa";
+import useClassCart from '../../../hooks/useClassCart';
 const NavBar = () => {
   const { user,logOut } = useContext(AuthContext);
+  const [classCart]=useClassCart();
   const handleLogOut = () => {
     logOut()
         .then(() => { })
@@ -15,6 +17,10 @@ const NavBar = () => {
       <li><ActiveLink to='/instructors'>Instructors</ActiveLink></li>
       <li><ActiveLink to='/classes'>Classes</ActiveLink></li>
       <li><ActiveLink to='/privetpage'>Privet</ActiveLink></li>
+      <li><ActiveLink to='/privetpage'><button className="flex items-center ">
+  <FaShoppingCart className='text-lg'></FaShoppingCart>
+  <div className="badge badge-secondary">+{classCart?.length || 0}</div>
+</button></ActiveLink></li>
       {
             user ? <>
                
