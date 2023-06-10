@@ -39,35 +39,33 @@ const MyClass = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
+      {classCart.map((data, index)=> <tr key={data._id}>
         <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
+        {index+1}
         </th>
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
-                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                <img src={data.image} />
               </div>
             </div>
             <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
+              <div className="font-bold">{data.name}</div>
+              
             </div>
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
+          {data.instructor}
          
         </td>
-        <td> <button>Delete</button> </td>
-        <td>Purple</td>
-        <td>Purple</td>
+        <td> <button className='btn  hover:bg-red-600 hover:text-white'>Delete</button> </td>
+        <td>{data.price}</td>
+        <td><button className='btn hover:bg-lime-400'>Pay</button></td>
         
-      </tr>
+      </tr>)}
+      
     
      
     </tbody>
