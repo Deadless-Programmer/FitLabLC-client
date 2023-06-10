@@ -17,7 +17,7 @@ const NavBar = () => {
       <li><ActiveLink to='/instructors'>Instructors</ActiveLink></li>
       <li><ActiveLink to='/classes'>Classes</ActiveLink></li>
       <li><ActiveLink to='/privetpage'>Privet</ActiveLink></li>
-      <li><ActiveLink to='/privetpage'><button className="flex items-center ">
+      <li><ActiveLink to='/dashboard/myselectedclass'><button className="flex items-center ">
   <FaShoppingCart className='text-lg'></FaShoppingCart>
   <div className="badge badge-secondary">+{classCart?.length || 0}</div>
 </button></ActiveLink></li>
@@ -47,7 +47,7 @@ const NavBar = () => {
 	</>
     return (
         <div>
-           <div className="navbar fixed z-10 bg-opacity-0 max-w-screen-xl bg-red-600">
+           <div className="navbar fixed z-10 dark:bg-gray-900 bg-opacity-0 max-w-screen-xl bg-red-600">
   <div className="navbar-start lg:ml-16">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

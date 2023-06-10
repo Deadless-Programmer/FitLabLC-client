@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivePage from "../Pages/HomePage/PrivePage/PrivePage";
 import PrivetRoute from "./PrivetRoute";
+import MyClass from "../Pages/Dashboard/MyClass/MyClass";
  
 
 
@@ -33,10 +34,10 @@ import PrivetRoute from "./PrivetRoute";
           path:"/classes",
           element:<Classes></Classes>
         },
-        {
-          path:"/dashboard",
-          element:<Dashboard></Dashboard>
-        },
+        // {
+        //   path:"/dashboard",
+        //   element:<Dashboard></Dashboard>
+        // },
         {
           path:"/login",
           element:<Login></Login>
@@ -52,6 +53,19 @@ import PrivetRoute from "./PrivetRoute";
         }
       ]
     },
+
+    {
+      
+        path:"/dashboard",
+        element:<Dashboard></Dashboard>,
+       children:[
+          {
+            path:'myselectedclass',
+            element:<MyClass></MyClass>
+          }
+       ]
+      
+    }
     
   ]);
 
