@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaShoppingCart,FaCogs, FaClone, FaUsersCog, FaBoxes, FaFileImport, FaFileExport, FaOpencart, FaWallet, FaHome, FaHistory, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProvider';
+import useClassCart from '../../hooks/useClassCart';
 const Dashboard = () => {
+    const [classCart]= useClassCart();
     const { user,logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
@@ -45,7 +47,9 @@ const Dashboard = () => {
             </>
         }
       <li><NavLink to='/'> <FaHome></FaHome> Home </NavLink></li>
-      <li><NavLink to="/dashboard/myselectedclass"> <FaShoppingCart></FaShoppingCart> My Selected Classes </NavLink></li>
+      <li><NavLink to="/dashboard/myselectedclass"> <FaShoppingCart></FaShoppingCart> My Selected Classes
+      <div className="badge badge-secondary">+{classCart?.length || 0}</div>
+       </NavLink></li>
       <li><NavLink to="/dashboard/enrolled"> <FaOpencart></FaOpencart> My Enrolled Classes </NavLink></li>
       <li><NavLink to="/dashboard/addaclass"> <FaFileExport></FaFileExport> Add a Class </NavLink></li>
       <li><NavLink to="/dashboard/myclasses"> <FaFileImport></FaFileImport> My Classes </NavLink></li>

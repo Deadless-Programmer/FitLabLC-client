@@ -14,7 +14,7 @@ const Login = () => {
   // console.log(navigate)
   const from = location.state?.from?.pathname || '/';
   console.log(from)
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
  
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -30,6 +30,7 @@ const Login = () => {
 			console.log(loggedUser)
       // toast("User has login successfully")
       if(loggedUser){
+        reset();
         Swal.fire({
           // position: 'top-end',
           icon: 'success',
@@ -50,8 +51,18 @@ const Login = () => {
     .then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      
-      navigate(from, { replace: true });
+      const saveUser= {name:loggedUser.displayName, email: loggedUser.email}
+		fetch('http://localhost:5000/user',{
+			method:"POST",
+			headers:{
+				'content-type':'application/json'
+			},
+			body:JSON.stringify(saveUser)
+		}).then(res=>res.json())
+		.then((data)=>{
+			navigate(from, { replace: true });
+		})
+      // navigate(from, { replace: true });
     })
     .catch((error) => {
       // setError(error.message);

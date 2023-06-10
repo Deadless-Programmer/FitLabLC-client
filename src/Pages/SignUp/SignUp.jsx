@@ -6,10 +6,11 @@ import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 const SignUp = () => {
 	const { createUser, googleSignIn } = useContext(AuthContext);
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 // 	const password = React.useRef({});
 //   password.current = watch('password', 'confirm');
@@ -20,7 +21,7 @@ const [passwordVisible, setPasswordVisible] = useState(false);
   };
   const navigate =useNavigate();
   const location = useLocation();
-//   const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/';
     const onSubmit = data => {
 		console.log(data.name, data.photourl);
 		const name = data.name;
@@ -36,8 +37,29 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 			const loggedUser = result.user;
 			profileUpdate(result.user, name, photo);
 			console.log(loggedUser)
-			toast("User has create account successfully")
+			const saveUser= {name, email: data.email}
+			fetch('http://localhost:5000/user',{
+				method:"POST",
+				headers:{
+					'content-type':'application/json'
+				},
+				body:JSON.stringify(saveUser)
+			}).then(res=>res.json())
+			.then(data=>{
+				if(data.insertedId){
+					reset();
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: 'User has create account successfully',
+						showConfirmButton: false,
+						timer: 1500
+					  })
+			// toast("User has create account successfully")
 			navigate('/')
+				}
+			})
+			
 		})
 		.catch(error => console.log(error))
 
@@ -47,8 +69,19 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 		.then((result) => {
 		  const loggedUser = result.user;
 		  console.log(loggedUser);
-		  navigate('/')
-		//   navigete(from, { replace: true });
+		//   navigate('/')
+		const saveUser= {name:loggedUser.displayName, email: loggedUser.email}
+		fetch('http://localhost:5000/user',{
+			method:"POST",
+			headers:{
+				'content-type':'application/json'
+			},
+			body:JSON.stringify(saveUser)
+		}).then(res=>res.json())
+		.then((data)=>{
+			navigate(from, { replace: true });
+		})
+		// navigate(from, { replace: true });
 		})
 		.catch((error) => {
 		  // setError(error.message);
