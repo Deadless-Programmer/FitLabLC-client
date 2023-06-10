@@ -4,6 +4,9 @@ import { FaShoppingCart,FaCogs, FaClone, FaUsersCog, FaBoxes, FaFileImport, FaFi
 import { AuthContext } from '../../providers/AuthProvider';
 import useClassCart from '../../hooks/useClassCart';
 const Dashboard = () => {
+
+    const isAdmin = true;
+
     const [classCart]= useClassCart();
     const { user,logOut } = useContext(AuthContext);
     const handleLogOut = () => {
@@ -26,7 +29,51 @@ const Dashboard = () => {
     <ul className="menu p-4 w-80 h-full bg-base-900 text-white text-base font-semibold">
       {/* Sidebar content here */}
 
+
       {
+        isAdmin? <>
+        
+        {
+            user ? <>  
+          <li>
+            <label
+              className=" avatar tooltip tooltip-bottom tooltip-success">
+              <div className="w-10 rounded-full ">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+           
+            <li><NavLink><FaUserCircle className='text-2xl -ml-5'></FaUserCircle> {user?.displayName}</NavLink>  </li>
+          </li>
+          <li>
+          
+          </li>
+        
+            </> : <>
+           
+            </>
+        }
+        <li><NavLink to='/'> <FaHome></FaHome> Home </NavLink></li>
+        <li><NavLink to="/dashboard/manageclasseses"> <FaBoxes></FaBoxes> Manage Classes </NavLink></li>
+      <li><NavLink to="/dashboard/manageusers"> <FaUsersCog></FaUsersCog> Manage Users </NavLink></li>
+      <li><NavLink to="/dashboard/notification">  <FaClone></FaClone> Notification </NavLink></li>
+
+
+     <hr className='py-2 mt-5' />
+      {/* <li><NavLink to="/dashboard/payment"> <FaWallet></FaWallet> Payment</NavLink></li> */}
+      <li><NavLink to="/dashboard/paymenthistory"> <FaHistory></FaHistory> Payment History</NavLink></li>
+      <li><NavLink to="/dashboard/settings"> <FaCogs></FaCogs> Settings</NavLink></li>
+      {
+            user ? <>
+                <li >
+            <Link >  <button className="" onClick={handleLogOut}>Log Out</button></Link>
+          </li>
+            </> : <> </>
+        }
+        {/* break line */}
+        </> : <>
+        
+        {
             user ? <>  
           <li>
             <label
@@ -69,6 +116,54 @@ const Dashboard = () => {
           </li>
             </> : <> </>
         }
+        
+        
+        </>
+      }
+
+      {/* {
+            user ? <>  
+          <li>
+            <label
+              className=" avatar tooltip tooltip-bottom tooltip-success">
+              <div className="w-10 rounded-full ">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+           
+            <li><NavLink><FaUserCircle className='text-2xl -ml-5'></FaUserCircle> {user?.displayName}</NavLink>  </li>
+          </li>
+          <li>
+          
+          </li>
+        
+            </> : <>
+           
+            </>
+        }
+      <li><NavLink to='/'> <FaHome></FaHome> Home </NavLink></li>
+      <li><NavLink to="/dashboard/myselectedclass"> <FaShoppingCart></FaShoppingCart> My Selected Classes
+      <div className="badge badge-secondary">+{classCart?.length || 0}</div>
+       </NavLink></li>
+      <li><NavLink to="/dashboard/enrolled"> <FaOpencart></FaOpencart> My Enrolled Classes </NavLink></li>
+      <li><NavLink to="/dashboard/addaclass"> <FaFileExport></FaFileExport> Add a Class </NavLink></li>
+      <li><NavLink to="/dashboard/myclasses"> <FaFileImport></FaFileImport> My Classes </NavLink></li>
+      <li><NavLink to="/dashboard/manageclasseses"> <FaBoxes></FaBoxes> Manage Classes </NavLink></li>
+      <li><NavLink to="/dashboard/manageusers"> <FaUsersCog></FaUsersCog> Manage Users </NavLink></li>
+      <li><NavLink to="/dashboard/notification">  <FaClone></FaClone> Notification </NavLink></li>
+
+
+     <hr className='py-2 mt-5' />
+      <li><NavLink to="/dashboard/payment"> <FaWallet></FaWallet> Payment</NavLink></li>
+      <li><NavLink to="/dashboard/paymenthistory"> <FaHistory></FaHistory> Payment History</NavLink></li>
+      <li><NavLink to="/dashboard/settings"> <FaCogs></FaCogs> Settings</NavLink></li>
+      {
+            user ? <>
+                <li >
+            <Link >  <button className="" onClick={handleLogOut}>Log Out</button></Link>
+          </li>
+            </> : <> </>
+        } */}
     </ul>
   
   </div>

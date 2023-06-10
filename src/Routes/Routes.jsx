@@ -13,6 +13,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import PrivePage from "../Pages/HomePage/PrivePage/PrivePage";
 import PrivetRoute from "./PrivetRoute";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
+import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
  
 
 
@@ -62,7 +63,12 @@ import MyClass from "../Pages/Dashboard/MyClass/MyClass";
           {
             path:'myselectedclass',
             element:<MyClass></MyClass>
-          }
+          },
+          {
+            path:'ManageUsers',
+            element:<ManageUsers></ManageUsers>
+          },
+
        ]
       
     }
