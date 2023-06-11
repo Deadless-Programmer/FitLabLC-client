@@ -4,10 +4,15 @@ import ActiveLink from '../../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaShoppingCart } from "react-icons/fa";
 import useClassCart from '../../../hooks/useClassCart';
+
 const NavBar = () => {
   const { user,logOut } = useContext(AuthContext);
   const [classCart]=useClassCart();
   const handleLogOut = () => {
+
+    
+
+
     logOut()
         .then(() => { })
         .catch(error => console.log(error));
@@ -47,6 +52,7 @@ const NavBar = () => {
 	</>
     return (
         <div>
+       
            <div className="navbar fixed z-10 dark:bg-gray-900 bg-opacity-0 max-w-screen-xl bg-red-600">
   <div className="navbar-start lg:ml-16">
     <div className="dropdown">

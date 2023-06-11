@@ -3,9 +3,12 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaShoppingCart,FaCogs, FaClone, FaUsersCog, FaBoxes, FaFileImport, FaFileExport, FaOpencart, FaWallet, FaHome, FaHistory, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProvider';
 import useClassCart from '../../hooks/useClassCart';
+import useAdmin from '../../hooks/useAdmin';
 const Dashboard = () => {
 
-    const isAdmin = true;
+    // const isAdmin = true;
+
+    const [isAdmin]=useAdmin();
 
     const [classCart]= useClassCart();
     const { user,logOut } = useContext(AuthContext);
