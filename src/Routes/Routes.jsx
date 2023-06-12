@@ -15,6 +15,8 @@ import PrivetRoute from "./PrivetRoute";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import AdminRoute from './AdminRoute';
+import Notification from "../Pages/Dashboard/Notification/Notification";
+import Settings from "../Pages/Dashboard/Settings/Settings";
  
 
 
@@ -64,6 +66,14 @@ import AdminRoute from './AdminRoute';
           {
             path:'myselectedclass',
             element:<MyClass></MyClass>
+          },
+          {
+            path:'settings',
+            element:<Settings></Settings>
+          },
+          {
+            path:'notification',
+            element:<Notification></Notification>
           },
           {
             path:'ManageUsers',

@@ -2,13 +2,19 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaRegLightbulb,FaLightbulb } from "react-icons/fa";
 import useClassCart from '../../../hooks/useClassCart';
 import './NavBar.css'
 
 const NavBar = () => {
   const { user,logOut } = useContext(AuthContext);
   const [classCart]=useClassCart();
+
+  // const [visible, setVisible] = useState(true);
+
+  // const toggleVisibility = () => {
+  //   setVisible(!visible);
+  // };
   const handleLogOut = () => {
 
     
@@ -19,6 +25,15 @@ const NavBar = () => {
         .catch(error => console.log(error));
 }
 	const navList = <>
+  {/* <li onClick={toggleVisibility}>
+   
+          {visible ? (
+            <li className=''> <FaRegLightbulb></FaRegLightbulb>  </li>
+          ) : (
+            <li className=''>  <FaLightbulb></FaLightbulb> </li>
+          )}
+        
+  </li> */}
 	 <li><ActiveLink to="/">Home</ActiveLink></li>    
       <li><ActiveLink to='/instructors'>Instructors</ActiveLink></li>
       <li><ActiveLink to='/classes'>Classes</ActiveLink></li>

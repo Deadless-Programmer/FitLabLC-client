@@ -58,7 +58,7 @@ const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     setIsButtonDisabled(true);
     console.log(data)
     console.log(data._id)
-    fetch(`http://localhost:5000/user/isInstructor/${data._id}`, {
+    fetch(`http://localhost:5000/user/instructor/${data._id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())
@@ -69,7 +69,7 @@ const [isButtonDisabled, setIsButtonDisabled] = useState(false);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: `${data.name} is an isInstructor Now!`,
+                title: `${data.name} is an instructor Now!`,
                 showConfirmButton: false,
                 timer: 1500
               })
