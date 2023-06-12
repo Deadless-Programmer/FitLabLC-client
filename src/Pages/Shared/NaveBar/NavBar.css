@@ -1,12 +1,1 @@
 /* styles.css */
-.container {
-    /* Shared styles for both themes */
-  }
-  
-  .container.dark {
-    color: darkslateblue;
-  }
-  
-  .container.light {
-    color: lightcyan;
-  }

@@ -7,6 +7,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import Spinner from '../../Spinner/Spinner';
 
 
+
 const Home = () => {
     const {loading}=useContext(AuthContext);
     
@@ -16,6 +17,7 @@ const Home = () => {
     }
     return (
         <div>
+           
            <Banner></Banner>
           <PopularClass></PopularClass>
           <PopularInstructors></PopularInstructors>

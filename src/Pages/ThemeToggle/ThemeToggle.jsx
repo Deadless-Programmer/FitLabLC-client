@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+// import "./ThemeToggle.css";
 
-const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
+//☀︎ ☽
+export default function ThemeToggle() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <button
-      className="bg-gray-300 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-4 py-2 rounded"
-      onClick={toggleTheme}
-    >
-      {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-    </button>
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
+      <div className="container">
+        <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+        <div className="switch-checkbox">
+          <label className="switch">
+            <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+            <span className="slider round"> </span>
+          </label>
+        </div>
+        <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
+      </div>
+      <div>
+        <h1>Cool its {darkMode ? "Dark" : "Light"} Mode </h1>
+      </div>
+    </div>
   );
-};
+}
 
-export default ThemeToggle;

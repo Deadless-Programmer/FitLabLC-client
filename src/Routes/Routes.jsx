@@ -14,6 +14,7 @@ import PrivePage from "../Pages/HomePage/PrivePage/PrivePage";
 import PrivetRoute from "./PrivetRoute";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
+import AdminRoute from './AdminRoute';
  
 
 
@@ -66,7 +67,7 @@ import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
           },
           {
             path:'ManageUsers',
-            element:<ManageUsers></ManageUsers>
+            element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
           },
 
        ]

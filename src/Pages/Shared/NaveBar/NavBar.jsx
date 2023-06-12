@@ -4,6 +4,7 @@ import ActiveLink from '../../ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaShoppingCart } from "react-icons/fa";
 import useClassCart from '../../../hooks/useClassCart';
+import './NavBar.css'
 
 const NavBar = () => {
   const { user,logOut } = useContext(AuthContext);
@@ -52,8 +53,8 @@ const NavBar = () => {
 	</>
     return (
         <div>
-       
-           <div className="navbar fixed z-10 dark:bg-gray-900 bg-opacity-0 max-w-screen-xl bg-red-600">
+     
+           <div className="navbar   bg-gray-900  max-w-screen-xl ">
   <div className="navbar-start lg:ml-16">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUserShield, FaUserCog} from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const ManageUsers = () => {
+    const [axiosSecure]=useAxiosSecure();
   const { data: user = [], refetch } = useQuery(["user"], async () => {
-    const res = await fetch("http://localhost:5000/user");
-    return res.json();
+    const res = await axiosSecure("/user");
+    return res.data;
   });
 
 // console.log(user)
@@ -46,6 +48,28 @@ const [isButtonDisabled, setIsButtonDisabled] = useState(false);
                 position: 'top-end',
                 icon: 'success',
                 title: `${data.name} is an Admin Now!`,
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+    })
+}
+  const handleMakeisInstructor = data =>{
+    setIsButtonDisabled(true);
+    console.log(data)
+    console.log(data._id)
+    fetch(`http://localhost:5000/user/isInstructor/${data._id}`, {
+        method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(item => {
+        console.log(item)
+        if(item.modifiedCount){
+            refetch();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `${data.name} is an isInstructor Now!`,
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -93,14 +117,24 @@ const [isButtonDisabled, setIsButtonDisabled] = useState(false);
                     </div>
                   </td>
                   <td>{data.email}</td>
-                  <td>
+                  {/* <td>
                   
                     <button className="btn  hover:bg-red-600  text-red-600 uppercase hover:text-white">
                    
                     <FaUserCog className="text-lg"></FaUserCog>  Instructor
                     </button>
-                  </td>
+                  </td> */}
 
+                  <td>
+                  
+                   {
+                    data.role ==='isInstructor'? <button disabled={isButtonDisabled}  className="btn bg-lime-500    text-white"> isInstructor </button>: 
+                    <button onClick={()=>handleMakeisInstructor(data)}  className="btn hover:bg-lime-500 text-base hover:text-white">  <FaUserCog className="text-lg"></FaUserCog>  Instructor </button>
+                   }
+
+                   
+                   
+                  </td>
                   <td>
                   
                    {
