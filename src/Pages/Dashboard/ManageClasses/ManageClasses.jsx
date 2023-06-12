@@ -1,10 +1,7 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
 import useClassCart from '../../../hooks/useClassCart';
 
-const MyClasses = () => {
-
+const ManageClasses = () => {
     const [classCart, refetch]=useClassCart();
     console.log(classCart);
     const total = classCart.reduce((sum, item) => item.price + sum, 0);
@@ -14,7 +11,7 @@ const MyClasses = () => {
         <div className="px-8 py-2 bg-gray-900 text-gray-100">
 <div className="flex items-center mx-auto container justify-center md:justify-between py-2">
     <div className='  w-[720px]'>
-        <p className='text-2xl text-center'>My All Classes Status </p>
+        <p className='text-2xl text-center'>Manage Classes Status </p>
        
        
     </div>
@@ -35,12 +32,15 @@ const MyClasses = () => {
     </th>
     <th>Class Name</th>
     <th>Instructor</th>
+    <th>Email</th>
     <th>Available Seats</th>
     <th>Price</th>
     <th>Status</th>
     <th>Total Enrolled</th>
     <th>Feedback</th>
-    <th>Update</th>
+    <th>Approve</th>
+    <th>Deny</th>
+    
   </tr>
 </thead>
 <tbody>
@@ -65,9 +65,32 @@ const MyClasses = () => {
       {data.instructor}
      
     </td>
-    <td> <button onClick={()=>handleDelete(data)} className='btn  hover:bg-red-600 text-xl text-red-600 hover:text-white'> <FaTrash></FaTrash> </button> </td>
+    <td> {data.email} </td>
+    
+    <td>{data.availableSeats}</td>
     <td>${data.price}</td>
-    <td><button className='btn hover:bg-lime-400 text-lime-600 hover:text-white  text-2xl'><FaAmazonPay></FaAmazonPay></button></td>
+    <td className='flex flex-col gap-2'>
+        <button className='btn btn-sm'>Pending</button>
+        <button className='btn btn-sm'>Approved</button>
+        <button className='btn btn-sm'>Denied</button>
+        
+    </td>
+    <td>
+    {data.availableSeats}
+        
+    </td>
+    <td className=''>
+        <button className='btn btn-sm'>Approve</button>
+  
+    </td>
+    <td className=''>
+        <button className='btn btn-sm'>Deny</button>
+  
+    </td>
+    <td className=''>
+        <button className='btn btn-sm'>Feedback</button>
+  
+    </td>
     
   </tr>)}
   
@@ -83,4 +106,4 @@ const MyClasses = () => {
     );
 };
 
-export default MyClasses;
+export default ManageClasses;

@@ -1,11 +1,15 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 const PopularClassCard = ({classData}) => {
     console.log(classData);
     const {image, name, instructor, availableSeats, price, selectButton, studentsEnrolled} = classData;
+    useEffect(() => {
+        AOS.init();
+      }, []);
     return (
         <div>
-             <div  className=" content-center rounded-md shadow-md bg-gray-100 text-black">
+             <div data-aos="fade-up"  className=" content-center rounded-md shadow-md bg-gray-100 text-black">
 	<img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
 	<div className="flex flex-col justify-between p-6 space-y-8">
 		<div className="space-y-2">

@@ -1,12 +1,16 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 const PopularInstructorsCard = ({mentorsData}) => {
     const {image, name, email, studentsInClass}=mentorsData;
     console.log(mentorsData)
+	useEffect(() => {
+        AOS.init();
+      }, []);
     return (
         <div>
-                  <div className="space-y-4">
-				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src={image} />
+                  <div data-aos="fade-up" className="space-y-4">
+				<img data-aos="zoom-in" alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src={image} />
 				<div className="flex flex-col items-center">
 					<h4 className="text-xl font-semibold">{name}</h4>
 					<p className="text-sm dark:text-gray-400">Enrolled : {studentsInClass}</p>

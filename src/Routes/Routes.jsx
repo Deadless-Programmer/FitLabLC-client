@@ -19,6 +19,10 @@ import Notification from "../Pages/Dashboard/Notification/Notification";
 import Settings from "../Pages/Dashboard/Settings/Settings";
 import AddAClass from "../Pages/Dashboard/AddAClass/AddAClass";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
  
 
 
@@ -70,12 +74,28 @@ import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
             element:<MyClass></MyClass>
           },
           {
+            path:'payment',
+            element:<Payment></Payment>
+          },
+          {
+            path:'paymenthistory',
+            element:<PaymentHistory></PaymentHistory>
+          },
+          {
+            path:'enrolled',
+            element:<EnrolledClasses></EnrolledClasses>
+          },
+          {
             path:'addaclass',
             element:<AddAClass></AddAClass>
           },
           {
             path:'myclasses',
             element:<MyClasses></MyClasses>
+          },
+          {
+            path:'manageclasseses',
+            element:<ManageClasses></ManageClasses>
           },
           {
             path:'settings',

@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaDumbbell } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import {FaPhoneSquareAlt, FaAddressBook } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Footer = () => {
+	useEffect(() => {
+        AOS.init();
+      }, []);
     return (
         <div>
 		
             <footer className="px-4 divide-y text-white bg-gray-900 ">
 	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-		<div className="lg:w-1/3">
+		<div data-aos="fade-up" className="lg:w-1/3">
 			<a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
 				<h1 className='text-4xl text-red-600 '> <FaDumbbell></FaDumbbell> </h1>
 				<span className="self-center text-2xl font-bold"><Link to="/" className=" font-bold text-2xl  ">FitLab<span className='text-red-600 font-extrabold '>LC</span> </Link></span>
 			</a>
 		</div>
 		<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
-			<div className="space-y-3">
+			<div data-aos="zoom-in" className="space-y-3">
 				<h3 className="tracking-wide uppercase dark:text-gray-50">services</h3>
 				<ul className="space-y-1">
 					<li>
@@ -33,7 +38,7 @@ const Footer = () => {
 					</li>
 				</ul>
 			</div>
-			<div className="space-y-3">
+			<div data-aos="flip-left" className="space-y-3">
 				<h3 className="tracking-wide uppercase dark:text-gray-50">Company</h3>
 				<ul className="space-y-1">
 					<li>
@@ -44,7 +49,7 @@ const Footer = () => {
 					</li>
 				</ul>
 			</div>
-			<div className="space-y-3">
+			<div data-aos="fade-up"  className="space-y-3">
 				<h3 className="uppercase dark:text-gray-50">Contact Details</h3>
 				<ul className="space-y-1">
 					<li className=''>
@@ -61,7 +66,7 @@ United States</a>
 					</li>
 				</ul>
 			</div>
-			<div className="space-y-3">
+			<div data-aos="zoom-in" className="space-y-3">
 				<div className="uppercase dark:text-gray-50">Social media</div>
 				<div className="flex justify-start space-x-3">
 					<a rel="noopener noreferrer" href="#" title="Facebook" className="flex items-center p-1">
@@ -83,7 +88,7 @@ United States</a>
 			</div>
 		</div>
 	</div>
-	<div className="py-6 text-sm text-center dark:text-gray-400">© 2003 Company Co. All rights reserved.</div>
+	<div  className="py-6 text-sm text-center dark:text-gray-400">© 2003 Company Co. All rights reserved.</div>
 </footer>
         </div>
     );

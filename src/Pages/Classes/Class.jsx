@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useClassCart from '../../hooks/useClassCart';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Class = ({data}) => {
   console.log(data)
     
@@ -62,9 +63,13 @@ const Class = ({data}) => {
   const cardStyle = {
     backgroundColor: isAvailable ? 'white' : 'red',
   };
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
     return (
         <div>
-           <div style={cardStyle} className=" content-center rounded-md shadow-md bg-gray-100 text-black">
+           <div data-aos="zoom-in" style={cardStyle} className=" content-center rounded-md shadow-md bg-gray-100 text-black">
 	<img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
 	<div className="flex flex-col justify-between p-6 space-y-8">
 		<div className="space-y-2">

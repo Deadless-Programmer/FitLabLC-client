@@ -37,11 +37,11 @@ const NavBar = () => {
 	 <li><ActiveLink to="/">Home</ActiveLink></li>    
       <li><ActiveLink to='/instructors'>Instructors</ActiveLink></li>
       <li><ActiveLink to='/classes'>Classes</ActiveLink></li>
-      <li><ActiveLink to='/privetpage'>Privet</ActiveLink></li>
-      <li><ActiveLink to='/dashboard/myselectedclass'><button className="flex items-center ">
+      {/* <li><ActiveLink to='/privetpage'>Privet</ActiveLink></li> */}
+      {/* <li><ActiveLink to='/dashboard/myselectedclass'><button className="flex items-center ">
   <FaShoppingCart className='text-lg'></FaShoppingCart>
   <div className="badge badge-secondary">+{classCart?.length || 0}</div>
-</button></ActiveLink></li>
+</button></ActiveLink></li> */}
       {
             user ? <>
                
@@ -61,6 +61,7 @@ const NavBar = () => {
           </li>
         
             </> : <>
+            
             <li><ActiveLink to='/login'>Login</ActiveLink></li>
             </>
         }
@@ -79,7 +80,8 @@ const NavBar = () => {
 	  {navList}
       </ul>
     </div>
-    <Link to="/" className=" font-bold text-2xl text-white">FitLab<span className='text-red-600 font-extrabold '>LC</span> </Link>
+    
+    <Link to="/" className=" font-bold text-2xl text-white ml-3 flex items-center "> <FaRegLightbulb className='text-white text-2xl'></FaRegLightbulb>FitLab<span className='text-red-600 font-extrabold '>LC</span> </Link>
   </div>
   <div className="navbar-end mr-16 hidden lg:flex">
     <ul className=" flex items-center gap-4 px-1 text-xs text-white font-semibold uppercase">

@@ -1,9 +1,13 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 const WrokOutPlan = () => {
+	useEffect(() => {
+        AOS.init();
+      }, []);
     return (
         <div>
-               <section className=" bg-orange-100 text-black">
+               <section data-aos="fade-up" className=" bg-orange-100 text-black">
 	<div className="container p-4 mx-auto space-y-16 sm:p-10">
 		<div className="space-y-4 text-center">
 			<h3 className="text-2xl font-bold leading-none sm:text-4xl">4-Week Workout Plan <br /> <hr className='my-4' /> Transform Your Fitness Journey</h3>
@@ -14,7 +18,7 @@ const WrokOutPlan = () => {
 
         <section className="p-4 lg:p-8 dark:bg-gray-800 dark:text-gray-100">
 	<div className="container mx-auto space-y-12">
-		<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+		<div data-aos="zoom-in" className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
 			<img  src="https://images.pexels.com/photos/3927025/pexels-photo-3927025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
 			<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 				<span className="text-xs uppercase dark:text-gray-400">Week 1 :</span>
@@ -23,7 +27,7 @@ const WrokOutPlan = () => {
 				<button type="button" className="self-start hover:text-lime-800">Show More</button>
 			</div>
 		</div>
-		<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+		<div data-aos="flip-left" className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
 			<img  src="https://images.pexels.com/photos/3757366/pexels-photo-3757366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
 			<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 				<span className="text-xs uppercase dark:text-gray-400">Week 2 :</span>
@@ -32,7 +36,7 @@ const WrokOutPlan = () => {
 				<button type="button" className="self-start hover:text-lime-800">Show More</button>
 			</div>
 		</div>
-		<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+		<div data-aos="zoom-in" className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
 			<img  src="https://images.pexels.com/photos/1554824/pexels-photo-1554824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
 			<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 				<span className="text-xs uppercase dark:text-gray-400">Week 3 :</span>
@@ -41,7 +45,7 @@ const WrokOutPlan = () => {
 				<button type="button" className="self-start hover:text-lime-800">Show More</button>
 			</div>
 		</div>
-		<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+		<div data-aos="fade-up" className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
 			<img  src="https://images.pexels.com/photos/4752856/pexels-photo-4752856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
 			<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 				<span className="text-xs uppercase dark:text-gray-400">Week 4 :</span>

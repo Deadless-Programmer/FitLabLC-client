@@ -5,6 +5,7 @@ import PopularInstructors from './PopularInstructors/PopularInstructors';
 import WrokOutPlan from './WrokOutPlan/WrokOutPlan';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Spinner from '../../Spinner/Spinner';
+import AosPackage from '../../Dashboard/MyClasses/AosPackage/AosPackage';
 
 
 
@@ -17,7 +18,7 @@ const Home = () => {
     }
     return (
         <div>
-           
+         
            <Banner></Banner>
           <PopularClass></PopularClass>
           <PopularInstructors></PopularInstructors>
