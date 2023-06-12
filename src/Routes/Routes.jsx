@@ -17,6 +17,8 @@ import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import AdminRoute from './AdminRoute';
 import Notification from "../Pages/Dashboard/Notification/Notification";
 import Settings from "../Pages/Dashboard/Settings/Settings";
+import AddAClass from "../Pages/Dashboard/AddAClass/AddAClass";
+import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
  
 
 
@@ -66,6 +68,14 @@ import Settings from "../Pages/Dashboard/Settings/Settings";
           {
             path:'myselectedclass',
             element:<MyClass></MyClass>
+          },
+          {
+            path:'addaclass',
+            element:<AddAClass></AddAClass>
+          },
+          {
+            path:'myclasses',
+            element:<MyClasses></MyClasses>
           },
           {
             path:'settings',

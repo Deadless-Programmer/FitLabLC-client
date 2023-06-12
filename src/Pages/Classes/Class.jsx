@@ -78,7 +78,7 @@ const Class = ({data}) => {
 		{/* <button disabled={!isAvailable || isAdmin} onClick={() => handleSelect(data)}>
         {isAdmin ? 'Logged in as Admin' : 'Select'}
       </button> */}
-        <button onClick={()=>handleAddToClassCart(data)} disabled={!isAvailable} className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">{selectButton}</button>
+        <button onClick={()=>handleAddToClassCart(data)} disabled={!isAvailable} className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select Class</button>
 	</div>
 </div> 
         </div>
