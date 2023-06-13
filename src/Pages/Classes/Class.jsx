@@ -12,12 +12,12 @@ const Class = ({data}) => {
     
     const {image, name, instructor, availableSeats, price, selectButton, _id} = data;
     const isAvailable = availableSeats > 0;
-    // const isAdmin = useAdmin();
+    // const [isAdmin] = useAdmin();
     const {user}=useContext(AuthContext);
     const navigate =useNavigate();
     const location = useLocation();
     const [,refetch]=useClassCart();
-    // const isInstructor = useInstructor()
+    // const [isInstructor] = useInstructor()
   const handleAddToClassCart = data=>{
           console.log(data)
           
@@ -85,7 +85,19 @@ const Class = ({data}) => {
 		{/* <button disabled={!isAvailable || isAdmin} onClick={() => handleSelect(data)}>
         {isAdmin ? 'Logged in as Admin' : 'Select'}
       </button> */}
-        <button onClick={()=>handleAddToClassCart(data)}  disabled={!isAvailable } className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select Class</button>
+        <button onClick={()=>handleAddToClassCart(data)}  disabled={!isAvailable  } className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select Class</button>
+        {/* {isAdmin || isInstructor ?
+                                        <button 
+                                        disabled
+                                         className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select</button>
+                                       
+                                        :
+                                       
+                                        <button 
+                                        onClick={()=>handleAddToClassCart(data)} 
+                                         className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select</button>
+                                        
+                                    } */}
 	</div>
 </div> 
         </div>
