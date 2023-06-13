@@ -14,7 +14,7 @@ const Instructors = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/instructors'); 
+            const response = await axios.get('https://fit-lab-learning-camp-server.vercel.app/instructors'); 
             setCourseData(response.data);
           } catch (error) {
             console.error('Error fetching course data:', error);
@@ -34,7 +34,7 @@ const Instructors = () => {
 
         // const [Instructors, setInstructors]=useState([]);
         // useEffect(()=>{
-        //     fetch('http://localhost:5000/instructors')
+        //     fetch('https://fit-lab-learning-camp-server.vercel.app/instructors')
         //     .then(res=> res.json())
         //     .then(data=>setInstructors(data))
         // },[])

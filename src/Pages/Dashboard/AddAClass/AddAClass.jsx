@@ -27,7 +27,7 @@ const AddAClass = () => {
         price
     
     );
-    const newToys = {
+    const addClasses = {
         name,
         image,
         instructor,
@@ -35,14 +35,14 @@ const AddAClass = () => {
         availableSeats,
         price
     };
-    console.log(newToys);
+    console.log(addClasses);
 
-    fetch("https://toyztore-server.vercel.app/signgleToys", {
+    fetch("https://fit-lab-learning-camp-server.vercel.app/class", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newToys),
+      body: JSON.stringify(addClasses),
     })
       .then((res) => res.json())
       .then((data) => {

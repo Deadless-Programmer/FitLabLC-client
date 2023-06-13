@@ -11,7 +11,7 @@ const PopularClass = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/popularClass'); 
+            const response = await axios.get('https://fit-lab-learning-camp-server.vercel.app/popularClass'); 
             setPopularClasses(response.data);
           } catch (error) {
             console.error('Error fetching course data:', error);

@@ -38,7 +38,7 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 			profileUpdate(result.user, name, photo);
 			console.log(loggedUser)
 			const saveUser= {name, email: data.email}
-			fetch('http://localhost:5000/user',{
+			fetch('https://fit-lab-learning-camp-server.vercel.app/user',{
 				method:"POST",
 				headers:{
 					'content-type':'application/json'
@@ -71,7 +71,7 @@ const [passwordVisible, setPasswordVisible] = useState(false);
 		  console.log(loggedUser);
 		//   navigate('/')
 		const saveUser= {name:loggedUser.displayName, email: loggedUser.email}
-		fetch('http://localhost:5000/user',{
+		fetch('https://fit-lab-learning-camp-server.vercel.app/user',{
 			method:"POST",
 			headers:{
 				'content-type':'application/json'

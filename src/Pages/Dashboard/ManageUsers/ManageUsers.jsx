@@ -14,7 +14,7 @@ const ManageUsers = () => {
 // console.log(user)
 //   const handleMakeAdminRole =(user)=>{
 //     console.log(user)
-//     fetch(`http://localhost:5000/user/admin/${user._id}`,{
+//     fetch(`https://fit-lab-learning-camp-server.vercel.app/user/admin/${user._id}`,{
 //         method:'PATCH'
 //     }).then(res=> res.json())
 //     .then(data=>{
@@ -36,7 +36,7 @@ const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     setIsButtonDisabled(true);
     console.log(data)
     console.log(data._id)
-    fetch(`http://localhost:5000/user/admin/${data._id}`, {
+    fetch(`https://fit-lab-learning-camp-server.vercel.app/user/admin/${data._id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())
@@ -58,7 +58,7 @@ const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     setIsButtonDisabled(true);
     console.log(data)
     console.log(data._id)
-    fetch(`http://localhost:5000/user/instructor/${data._id}`, {
+    fetch(`https://fit-lab-learning-camp-server.vercel.app/user/instructor/${data._id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())

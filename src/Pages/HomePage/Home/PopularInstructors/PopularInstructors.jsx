@@ -11,7 +11,7 @@ const PopularInstructors = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:5000/popularInstructors'); 
+            const response = await axios.get('https://fit-lab-learning-camp-server.vercel.app/popularInstructors'); 
             setPopularMentors(response.data);
           } catch (error) {
             console.error('Error fetching course data:', error);

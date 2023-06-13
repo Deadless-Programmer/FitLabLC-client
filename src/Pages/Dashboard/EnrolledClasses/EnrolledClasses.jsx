@@ -20,7 +20,7 @@ const EnrolledClasses = () => {
               }).then((result) => {
                 if (result.isConfirmed) {
                     
-                    fetch(`http://localhost:5000/classCart/${data._id}`,{
+                    fetch(`https://fit-lab-learning-camp-server.vercel.app/classCart/${data._id}`,{
                         method: 'DELETE'
                     })
                     .then(res=>res.json())

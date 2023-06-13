@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-// console.log(isInstructor)
+console.log(isInstructor)
   const [classCart] = useClassCart();
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {

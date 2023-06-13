@@ -21,7 +21,7 @@ const Class = ({data}) => {
           
           if(user && user.email){
             const classCartItem = { classId:_id, image, name, instructor, availableSeats, price, email:user.email}
-            fetch('http://localhost:5000/classCart',{
+            fetch('https://fit-lab-learning-camp-server.vercel.app/classCart',{
               method: 'POST',
               headers: {
                   'content-type': 'application/json'
