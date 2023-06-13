@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
-import useClassCart from '../../../hooks/useClassCart';
+import { AuthContext } from '../../../providers/AuthProvider';
+// import useClassCart from '../../../hooks/useClassCart';
 
 const MyClasses = () => {
+  const {user, loading}= useContext(AuthContext);
 
-    const [classCart, refetch]=useClassCart();
-    console.log(classCart);
-    const total = classCart.reduce((sum, item) => item.price + sum, 0);
+  const [myAddedClass, setMyAddedClass]=useState()
+
+  useEffect(()=>{
+    fetch(`https://fit-lab-learning-camp-server.vercel.app/signgleClassByEmail?email=${user?.email}`)
+    .then(res=> res.json())
+    .then(data=>setMyAddedClass(data))
+  },[])
+
+    // const [classCart, refetch]=useClassCart();
+    console.log(myAddedClass);
+    // const total = myAddedClass.reduce((sum, item) => item.price + sum, 0);
     return (
         <div>
 
@@ -44,7 +54,7 @@ const MyClasses = () => {
   </tr>
 </thead>
 <tbody>
-  {classCart?.map((data, index)=> <tr key={data._id}>
+  {myAddedClass?.map((data, index)=> <tr key={data._id}>
     <th>
     {index+1}
     </th>
@@ -65,9 +75,11 @@ const MyClasses = () => {
       {data.instructor}
      
     </td>
-    <td> <button onClick={()=>handleDelete(data)} className='btn  hover:bg-red-600 text-xl text-red-600 hover:text-white'> <FaTrash></FaTrash> </button> </td>
+    <td> {data.availableSeats} </td>
     <td>${data.price}</td>
-    <td><button className='btn hover:bg-lime-400 text-lime-600 hover:text-white  text-2xl'><FaAmazonPay></FaAmazonPay></button></td>
+    <td className="px-2 py-4 text-sm text-gray-500 whitespace-nowrap">{data?.status || 'pending'}</td>
+      <td>50</td>
+    <td className="px-2 py-4 text-sm text-gray-500 whitespace-nowrap">{data?.feedback || ''}</td>
     
   </tr>)}
   

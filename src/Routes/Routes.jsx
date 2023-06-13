@@ -23,6 +23,7 @@ import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import Feedback from "../Pages/Dashboard/Feedback/Feedback";
  
 
 
@@ -72,6 +73,11 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
           {
             path:'myselectedclass',
             element:<MyClass></MyClass>
+          },
+          {
+            path:'manageclasseses/feedback/:id',
+            element:<Feedback></Feedback>,
+            loader: ({params}) => fetch(`https://fit-lab-learning-camp-server.vercel.app/manage/${params.id}`)
           },
           {
             path:'payment',
