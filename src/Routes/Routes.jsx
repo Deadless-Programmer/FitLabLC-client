@@ -25,6 +25,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Feedback from "../Pages/Dashboard/Feedback/Feedback";
 import InstructorRoute from "./InstructorRoute";
+import BackgroundImg from "../Pages/Dashboard/BackgroundImg/BackgroundImg";
  
 
 
@@ -74,6 +75,10 @@ import InstructorRoute from "./InstructorRoute";
           {
             path:'myselectedclass',
             element:<MyClass></MyClass>
+          },
+          {
+            path:'/dashboard',
+            element:<BackgroundImg></BackgroundImg>
           },
           {
             path:'manageclasseses/feedback/:id',

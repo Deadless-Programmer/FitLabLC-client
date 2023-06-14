@@ -6,7 +6,9 @@ import Spinner from '../Spinner/Spinner';
 import AOS from "aos";
 import "aos/dist/aos.css";
 const Instructors = () => {
-
+  const {loading}=useContext(AuthContext);
+    
+ 
     const [courseData, setCourseData] = useState([]);
     useEffect(() => {
       AOS.init();
@@ -24,13 +26,11 @@ const Instructors = () => {
         fetchData();
       }, []);
 
-      const {loading}=useContext(AuthContext);
-    
+      
       if(loading){
         return  <Spinner></Spinner>
       
       }
-
 
         // const [Instructors, setInstructors]=useState([]);
         // useEffect(()=>{
