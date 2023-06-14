@@ -79,7 +79,7 @@ const MyClasses = () => {
     <td>${data.price}</td>
     <td className="px-2 py-4 text-sm text-gray-500 whitespace-nowrap">{data?.status || 'pending'}</td>
       <td>50</td>
-    <td className="px-2 py-4 text-sm text-gray-500 whitespace-nowrap">{data?.feedback || ''}</td>
+    <td className="px-2 py-4 text-sm  text-gray-500 whitespace-nowrap overflow-x-scroll ">{data?.feedback || ''}</td>
     <td ><button className=" btn-sm bg-red-600 rounded hover:bg-lime-500 text-white" >UPDATE</button></td>
    
   </tr>)}
