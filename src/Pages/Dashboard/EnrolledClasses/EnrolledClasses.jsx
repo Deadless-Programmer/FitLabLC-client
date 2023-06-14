@@ -47,7 +47,7 @@ const EnrolledClasses = () => {
 	<div className="flex items-center mx-auto container justify-center md:justify-between py-2">
 		<div className='flex justify-between w-[720px]'>
 			<p className='text-2xl'>My Total Class : {classCart.length}</p>
-			<p className="text-2xl">Total Price : ${(total).toFixed(2)}</p>
+			<p className="text-2xl">Total Price : ${(total)}</p>
             <Link className="text-2xl hover:text-lime-400">Pay</Link>
 		</div>
 		

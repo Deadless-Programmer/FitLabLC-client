@@ -6,8 +6,11 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Spinner from '../Spinner/Spinner';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useInstructor';
 const Classes = () => {
-
+const [isAdmin] = useAdmin();
+const [isInstructor] = useInstructor();
     const [classes, setClasses]=useState([]);
     // useEffect(()=>{
     //     fetch('https://fit-lab-learning-camp-server.vercel.app/class')
@@ -51,7 +54,7 @@ const Classes = () => {
 
         <div  className="grid w-full content-center	 grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
 			{
-                classes.map((data, index)=> <Class data={data} key={index}></Class>)
+                classes.map((data, index)=> <Class isInstructor={isInstructor} isAdmin={isAdmin} data={data} key={index}></Class>)
                 
             }
 			

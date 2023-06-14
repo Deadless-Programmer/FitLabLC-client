@@ -24,6 +24,7 @@ import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses"
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import Feedback from "../Pages/Dashboard/Feedback/Feedback";
+import InstructorRoute from "./InstructorRoute";
  
 
 
@@ -76,7 +77,7 @@ import Feedback from "../Pages/Dashboard/Feedback/Feedback";
           },
           {
             path:'manageclasseses/feedback/:id',
-            element:<Feedback></Feedback>,
+            element:<AdminRoute><Feedback></Feedback></AdminRoute>,
             loader: ({params}) => fetch(`https://fit-lab-learning-camp-server.vercel.app/manage/${params.id}`)
           },
           {
@@ -93,15 +94,15 @@ import Feedback from "../Pages/Dashboard/Feedback/Feedback";
           },
           {
             path:'addaclass',
-            element:<AddAClass></AddAClass>
+            element:<InstructorRoute><AddAClass></AddAClass></InstructorRoute>
           },
           {
             path:'myclasses',
-            element:<MyClasses></MyClasses>
+            element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>  
           },
           {
             path:'manageclasseses',
-            element:<ManageClasses></ManageClasses>
+            element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
           },
           {
             path:'settings',

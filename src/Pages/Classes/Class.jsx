@@ -7,7 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import useInstructor from './../../hooks/useInstructor';
 import useAdmin from './../../hooks/useAdmin';
-const Class = ({data}) => {
+const Class = ({data, isAdmin, isInstructor}) => {
   console.log(data)
     
     const {image, name, instructor, availableSeats, price, selectButton, _id} = data;
@@ -17,7 +17,7 @@ const Class = ({data}) => {
     const navigate =useNavigate();
     const location = useLocation();
     const [,refetch]=useClassCart();
-    // const [isInstructor] = useInstructor()
+    // const [isInstructor] = useInstructor();
   const handleAddToClassCart = data=>{
           console.log(data)
           
@@ -85,7 +85,7 @@ const Class = ({data}) => {
 		{/* <button disabled={!isAvailable || isAdmin} onClick={() => handleSelect(data)}>
         {isAdmin ? 'Logged in as Admin' : 'Select'}
       </button> */}
-        <button onClick={()=>handleAddToClassCart(data)}  disabled={!isAvailable  } className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select Class</button>
+        <button onClick={()=>handleAddToClassCart(data)}  disabled={isAdmin ||isInstructor || !isAvailable   } className="btn bg-red-600 text-lg border-0 text-white hover:bg-lime-700 capitalize">Select Class</button>
         {/* {isAdmin || isInstructor ?
                                         <button 
                                         disabled

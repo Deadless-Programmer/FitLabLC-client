@@ -47,6 +47,7 @@ const AddAClass = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          form.reset();
           Swal.fire({
             // position: 'top-end',
             icon: "success",

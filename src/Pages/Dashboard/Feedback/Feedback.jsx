@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-
+import Swal from 'sweetalert2';
+// const navigate =useNavigate()
 
 const Feedback = () => {
 	const [axiosSecure]=useAxiosSecure();
@@ -19,7 +20,15 @@ const Feedback = () => {
 		console.log(_id)
 		axiosSecure.patch(`/classCart/feedback/${_id}`,feedback)
 		.then(data=>{
-			console.log(data)
+
+			  if (data.modifiedCount) {
+				form.reset();
+            Swal.fire(
+                'Good job!',
+                'Class Approved Successfully !',
+                'success'
+            )
+        }
 		})
 		
 			
@@ -66,7 +75,7 @@ const Feedback = () => {
 		</form>
 	</div>
 	<div className="flex items-center justify-center">
-		<a rel="noopener noreferrer" href="#" className="text-sm text-white dark:text-gray-400">Maybe later</a>
+		<Link rel="noopener noreferrer"  className="text-sm text-white dark:text-gray-400">Maybe later</Link>
 	</div>
 </div>
         </div>
